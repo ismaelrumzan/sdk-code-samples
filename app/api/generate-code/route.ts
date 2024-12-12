@@ -2,6 +2,8 @@ import { type NextRequest, NextResponse } from 'next/server'
 import { streamText } from 'ai'
 import { openai } from '@ai-sdk/openai'
 
+export const maxDuration = 60
+
 interface OpenAPISpec {
   paths: {
     [path: string]: {
