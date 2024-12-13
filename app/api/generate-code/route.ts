@@ -96,10 +96,10 @@ export async function POST(req: NextRequest) {
     };
 
     const stream = streamText({
-      model: openai('gpt-4-turbo'),
-      system: `You are an AI assistant that generates code samples based on an OpenAPI specification. 
+      model: openai('gpt-4o'),
+      system: `You are a Senior Software Engineer with a deep understanding of the OpenAPI specification. 
       The specification is provided in the following JSON format: ${JSON.stringify(filteredSpec)}`,
-      prompt: `Generate a code sample for the following request related to the '${selectedTags.join(", ")}' tags: ${prompt}`,
+      prompt: `Generate a code sample only using the Vercel/SDK for the following request related to the '${selectedTags.join(", ")}' tags: ${prompt}`,
     });
 
     return new NextResponse(stream.textStream);
